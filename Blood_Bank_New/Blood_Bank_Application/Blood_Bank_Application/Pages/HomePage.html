@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="AngularProject">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Blood Bank Application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="http://code.angularjs.org/1.2.14/angular-route.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
+    <script src="../Javascripts/bootstrap.js"></script>
+
+    <!-- Controller -->
+    <script src="../Javascripts/app.js"></script>
+    <script src="../Javascripts/TitleController.js"></script>
+    <script src="../Javascripts/ReceiverController.js"></script>
+    <script src="../Javascripts/DonorController.js"></script>
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../Css/bootstrap.css">
+    <link href="../Css/app.css" rel="stylesheet" />
+</head>
+<!--<body style="overflow-x:hidden;background-image: url('../Images/blood.jpg');">
+    <div class="">
+        <div class="row">
+            <div class="col-lg-7">
+                <img src="../Images/blood.jpg" style="height:100%" class="img-fluid" />
+            </div>
+            <div class="col-lg-5"  style="padding-top:500px">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+</body>-->
+
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" style="margin-top:30px;margin-left:-150px;">
+                <a class="navbar-brand" href="#/" style="cursor:pointer" id="header">Blood Bank Application</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" style="margin-top:30px">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:-155px;">
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="mySidenav" class="sidenav">
+            <img src="../Images/blood.jpg" width="350" height="500"/>
+        </div>
+        <div id="indexView" ng-view></div>
+    </div>
+    <footer style="position:fixed">
+        <div class="col-sm-offset-4" style="padding-top:25px;font-size:12px;"><i><b>IBM India Pvt LTD &copy;</i></b></div>
+    </footer>
+</body>
+</html>

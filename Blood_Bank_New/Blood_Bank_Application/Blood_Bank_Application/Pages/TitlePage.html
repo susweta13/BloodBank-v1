@@ -1,0 +1,188 @@
+﻿<!--<div class="row">
+    <div class="col-md-2">
+        <button class="btn btn-primary" ng-click="donor()">Donor</button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" ng-click="receiver()">Receiver</button>
+    </div>
+</div>-->
+
+<div id="welcomeDiv" class="row ng-scope">
+    <div class="col-lg-12">
+        <div class="col-lg-12" style="padding-left:175px;padding-top:200px;">
+            <div class="col-lg-5 hovergallery">
+                <img src="../Images/donor_v3.jpg" class="img-thumbnail img-responsive" data-toggle="modal" data-original-title="Blood Donor" data-target="#donor">
+                <div style="height:50px;width:100px;padding-bottom:20px;" align="center" class="col-sm-offset-4"><label>Blood Donor</label></div>
+            </div>
+            <table style="border: 1px solid black;"></table>
+            <div class="col-lg-5 col-lg-offset-2 hovergallery" style="padding-left:70px;">
+                <img src="../Images/receiver_v2.jpg" class="img-thumbnail img-responsive" data-toggle="modal" data-original-title="Blood Receiver" data-target="#receiver" style="width:70%">
+                <div style="height:100px;width:100%;padding-bottom:20px;margin-top:10px;margin-left:-40px;" align="center" class="col-sm-offset-0"><label>Blood Receiver</label></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="donor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h2>Choose Action</h2>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <div class="row">
+                            <div class="col-md-12" ng-if="donorDashboard">
+                                <button type="button" class="btn btn-success" ng-click="donor()">Login</button>
+                            </div>
+                            <div ng-if="isDonorLogin" class="row">
+                                <form ng-submit="DonorLoginPost(DonorLoginModel)">
+                                    <div class="row">
+                                        <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                            <label>
+                                                Username :
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="text" ng-model="DonorLoginModel.Username" required class="form-control" />
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                            <label>
+                                                Password :
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="password" ng-model="DonorLoginModel.Password" required class="form-control" style="width:300px;height:27px;" />
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-if="isDonorLogin" style="margin-left:5px">
+                                        <div class="col-md-2" style="padding-top:5px;border-radius:7px;">
+                                            <input type="submit" value="Login" class="btn btn-success" />
+                                        </div>
+                                        <div class="col-md-1" style="padding-top:5px;border-radius:7px;">
+                                            <button ng-click="backToDashboardPage()" class="btn btn-warning">Back</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="receiver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h2>Choose Action</h2>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <div class="row" ng-if="isReceiverDashboard">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-success" ng-click="Login()">Login</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-primary" ng-click="Register()">Register</button>
+                            </div>
+                        </div>
+                        <!--Login page for Receiver-->
+                        <div ng-if="isLogin" class="row">
+                            <form ng-submit="LoginPost(LoginModel)">
+                                <div class="row">
+                                    <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                        <label>
+                                            Username :
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" ng-model="LoginModel.Username" required class="form-control" />
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                        <label>
+                                            Password :
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="password" ng-model="LoginModel.Password" required class="form-control" style="width:300px;height:27px;" />
+                                    </div>
+                                </div>
+                                <div class="row" ng-if="isLogin" style="margin-left:5px">
+                                    <div class="col-md-2" style="padding-top:5px;border-radius:7px;">
+                                        <input type="submit" value="Login" class="btn btn-success" />
+                                    </div>
+                                    <div class="col-md-1" style="padding-top:5px;border-radius:7px;">
+                                        <button ng-click="backToDashboardPage()" class="btn btn-warning">Back</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--Register Page for Receiver-->
+                        <div ng-if="isRegisterDiv" class="row">
+                            <form ng-submit="RegisterPost(Model)">
+                                <div class="row">
+                                    <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                        <label>
+                                            Name :
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" ng-model="Model.Name" required class="form-control" />
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                        <label>
+                                            Address :
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" ng-model="Model.Address" required class="form-control" style="width:300px;height:27px;" />
+                                    </div>
+                                </div>
+                                <br /> 
+                                <div class="row">
+                                    <div class="col-md-3" style="padding-top:5px;border-radius:7px;">
+                                        <label>
+                                            Blood Group :
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" ng-model="Model.BGroup" required class="form-control" style="width:300px;height:27px;" />
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row" ng-if="isRegisterDiv" style="margin-left:-5px;">
+                                    <div class="col-md-2" style="padding-top:5px;border-radius:7px;">
+                                        <input type="submit" value="Register" class="btn btn-success" />
+                                    </div>
+                                    <div class="col-md-1" style="padding-top:5px;border-radius:7px;">
+                                        <button ng-click="backToDashboardPage()" class="btn btn-warning">Back</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
